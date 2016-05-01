@@ -1,0 +1,130 @@
+<!doctype html>
+<!--[if IE 6 ]>
+<html lang="en-us" class="ie6"> <![endif]-->
+<!--[if IE 7 ]>
+<html lang="en-us" class="ie7"> <![endif]-->
+<!--[if IE 8 ]>
+<html lang="en-us" class="ie8"> <![endif]-->
+<!--[if (gt IE 7)|!(IE)]><!-->
+<html lang="en-us"><!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+
+    <title>Edit-in-place - jQuery in place editor</title>
+
+    <link rel="stylesheet" href="assets/css/jquery.editinplace.css"/>
+    <link rel="stylesheet" href="assets/css/demo.css" media="screen"/>
+
+</head>
+<body>
+
+<table border="1" width="100%">
+    <tbody>
+    <tr class="item">
+        <th class="name">Forcast</th>
+        <td class="field"><span>$300</span></td>
+    </tr>
+    <tr class="item">
+        <th class="name">Industry</th>
+        <td class="field">
+            <a class="editable" data-editable-type='text' data-editable-default="" data-target='custom_fields.php' data-editable-attribute='{"field-name": "industry", "field-id": "1"}' data-method='post'>
+                <span class="undefined">Not set</span>
+            </a>
+        </td>
+    </tr>
+    <tr class="item">
+        <th class="name">Product Interest</th>
+        <td class="field">
+            <a class="editable" data-editable-type='multiple' data-editable-entries='{"Widget A":"Widget A", "Widget B":"Widget B", "Widget C":"Widget C"}' data-editable-default='["Widget A", "Widget C"]' data-target='custom_fields.php' data-editable-attribute='{"field-name": "widget", "field-id": "2"}' data-method='post'>
+                Widget A, Widget C
+            </a>
+        </td>
+    </tr>
+    <tr class="item">
+        <th class="name">Region</th>
+        <td class="field">
+            <a class="editable" data-editable-type='selection' data-editable-entries='{"1":"Asia", "2":"Europe", "3":"Africa", "4":"Indonesia"}' data-target='custom_fields.php' data-editable-attribute='{"field-name": "region", "field-id": "3"}' data-method='post'>
+                Asia
+            </a>
+        </td>
+    </tr>
+    <tr class="item">
+        <th class="name">Next Step</th>
+        <td class="field">
+            <a class="editable" data-editable-type='text' data-target='custom_fields.php' data-editable-default="proceed" data-editable-attribute='{"field-name": "next_step", "field-id": "4"}' data-method='post'>
+                proceed
+            </a>
+        </td>
+    </tr>
+    <tr class="item">
+        <th class="name">Default Date</th>
+        <td class="field">
+            <a class="editable" data-editable-type='date' data-target='custom_fields.php' data-editable-default="9/18/2012" data-editable-attribute='{"field-name": "default_date", "field-id": "5"}' data-method='post'>
+                9/18/2012
+            </a>
+        </td>
+    </tr>
+    <tr class="item">
+        <th class="name">Field Name</th>
+        <td class="field">
+            <a class="editable" data-editable-type='bigtext' data-target='custom_fields.php' data-editable-default="" data-editable-attribute='{"field-name": "industry", "field-id": "6"}' data-method='post'>
+                <span class="undefined">Not set</span>
+            </a>
+        </td>
+    </tr>
+    <tr class="item">
+        <th class="name">Field Name</th>
+        <td class="field">
+            <a class="editable" data-editable-type='selection' data-editable-entries=".status-list" data-target='custom_fields.php' data-editable-attribute='{"field-name": "industry", "field-id": "7"}' data-method='post'>
+                <img src="img/status_empty.png"/>
+            </a>
+        </td>
+    </tr>
+    <tr class="item">
+        <th class="name">Field Name</th>
+        <td class="field">
+            <a class="editable" data-editable-type='text' data-target='custom_fields.php' data-editable-default="" data-editable-attribute='{"field-name": "industry", "field-id": "8"}' data-method='post'>
+                <span class="undefined">Not set</span>
+            </a>
+        </td>
+    </tr>
+    <tr class="item">
+        <th class="name">Field Name</th>
+        <td class="field">
+            <a class="editable" data-editable-type='text' data-target='custom_fields.php' data-editable-default="" data-editable-attribute='{"field-name": "industry", "field-id": "9"}' data-method='post'>
+                <span class="undefined">Not set</span>
+            </a>
+        </td>
+    </tr>
+    <tr class="item">
+        <th class="name">Field Name</th>
+        <td class="field">
+            <a class="editable" data-editable-type='text' data-target='custom_fields.php' data-editable-default="" data-editable-attribute='{"field-name": "industry", "field-id": "10"}' data-method='post'>
+                <span class="undefined">Not set</span>
+            </a>
+        </td>
+    </tr>
+    <tr class="item">
+        <th class="name">Field Name</th>
+        <td class="field">
+            <a class="editable" data-editable-type='text' data-target='custom_fields.php' data-editable-default="" data-editable-attribute='{"field-name": "industry", "field-id": "11"}' data-method='post'>
+                <span class="undefined">Not set</span>
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<div class="hidden status-list">
+    <img src="img/status_empty.png"/>
+    <img src="img/status_red.gif"/>
+    <img src="img/status_green.gif"/>
+    <img src="img/status_yellow.gif"/>
+</div>
+
+<!--/hidden-blocks-->
+<script src="assets/js/jquery-1.9.1.min.js"></script>
+<script src="assets/js/jquery-migrate-1.1.1.min.js"></script>
+<script src="assets/js/jquery.editinplace.js"></script>
+<script src="assets/js/script.js"></script>
+</body>
+</html>

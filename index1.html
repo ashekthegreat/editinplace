@@ -1,0 +1,672 @@
+<!doctype html>
+<!--[if IE 6 ]><html lang="en-us" class="ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en-us" class="ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en-us" class="ie8"> <![endif]-->
+<!--[if (gt IE 7)|!(IE)]><!-->
+<html lang="en-us"><!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+
+	<title>Gmail like Dockable Modal Dialog Plugin - Modal dialogs that can be minimized</title>
+
+	<meta name="description" content="Dockmodal - dockable modal dialog plugin that has the option to minimize and restore opened modal dialogs. A huge range of options and events are provided."/>
+	<meta name="author" content="Tarafder Ashek E Elahi"/>
+	<meta name="copyright" content="Tarafder Ashek E Elahi"/>
+	<meta name="generator" content="Documenter v2.0 http://rxa.li/documenter"/>
+	<meta name="date" content="2014-01-16T00:00:00+01:00"/>
+
+    <script>document.createElement('section');var duration='500',easing='swing';</script>
+
+	<link rel="stylesheet" href="assets/css/documenter_style.css" media="all"/>
+	<link rel="stylesheet" href="assets/js/google-code-prettify/prettify.css" media="screen"/>
+	<link rel="stylesheet" href="assets/css/demo.css" media="screen"/>
+    <link rel="stylesheet" href="assets/css/jquery.dockmodal.css"/>
+
+</head>
+<body class="documenter-project-gmail-like-dockable-modal-dialog-plugin">
+	<div id="documenter_sidebar">
+		<a href="#documenter_cover" id="documenter_logo">v 1.1 &nbsp;</a>
+		<ul id="documenter_nav">
+			<li><a class="current" href="#documenter_cover">Start</a></li>
+
+			<li><a href="#getting_started" title="Getting Started">Getting Started</a></li>
+			<li><a href="#examples" title="Examples">Examples</a></li>
+			<li><a href="#options" title="Options">Options</a></li>
+			<li><a href="#methods" title="Methods">Methods</a></li>
+			<li><a href="#events" title="Events">Events</a></li>
+		</ul>
+
+        <div id="documenter_copyright">Copyright Tarafder Ashek E Elahi 2014<br>
+		made with the <a href="http://rxa.li/documenter">Documenter v2.0</a>
+		</div>
+	</div>
+	<div id="documenter_content">
+    <section id="documenter_cover">
+        <h1>Dockmodal - Gmail like Dockable Modal Dialog Plugin</h1>
+
+        <h2>Modal dialogs that can be minimized</h2>
+        <hr/>
+        <ul>
+            <li>Created: 01/01/2014</li>
+            <li>Latest update: 02/10/2014</li>
+            <li>By: Tarafder Ashek E Elahi</li>
+            <!--<li><a href="http://www.miniman.us/mockups/dockmodal/">www.miniman.us/mockups/dockmodal/</a></li>-->
+            <li>Email: <a href="mailto:&#109;&#97;&#105;&#108;&#46;&#97;&#115;&#104;&#101;&#107;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#109;&#97;&#105;&#108;&#46;&#97;&#115;&#104;&#101;&#107;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a></li>
+        </ul>
+        <p>Thank you</p>
+    </section>
+
+    <section id="getting_started">
+        <div class="page-header"><h3>Basic Usage</h3>
+            <hr class="notop">
+        </div>
+        <h4>Step 1</h4>
+        <p>Add the <i><u>jquery.dockmodal.css</u></i> in your document head</p>
+<pre class="prettyprint lang-well linenums"><code>&lt;link href=&quot;assets/css/jquery.dockmodal.css&quot; rel=&quot;stylesheet&quot;/&gt;</code></pre>
+
+        <h4>Step 2</h4>
+        <p>Add the <i><u>jquery.dockmodal.js</u></i> after loading jquery.js</p>
+<pre class="prettyprint lang-well linenums"><code>&lt;script src=&quot;assets/js/jquery.dockmodal.js&quot;&gt;&lt;/script&gt;</code></pre>
+
+        <h4>Step 3</h4>
+        <p>Then initialize the docked modal. It&#39;s pretty simple. Just pick any html element and call .dockmodal() on its jQuery instance within your javascript code</p>
+
+<pre class="prettyprint lang-well linenums"><code>$(&quot;#dialog1&quot;).dockmodal();</code></pre>
+
+        <p>There are lots of options that can be passed to the initializer. For a detailed list scroll down to options section.</p>
+
+<pre class="prettyprint lang-well linenums"><code>$(&quot;#dialog1&quot;).dockmodal({
+    title: &quot;Window 1&quot;,
+    buttons: [
+        {
+            html: &quot;Cancel&quot;,
+            buttonClass: &quot;btn btn-default&quot;,
+            click: function () {
+                // do something when the button is clicked
+            }
+        }, {
+            html: &quot;Ok&quot;,
+            buttonClass: &quot;btn btn-default&quot;,
+            click: function () {
+                // do something when the button is clicked
+            }
+        }
+    ]
+});</code></pre>
+
+    </section>
+
+    <section id="examples">
+        <div class="page-header">
+            <h3>Examples</h3>
+            <hr class="notop"/>
+        </div>
+
+        <h4>Basic usage with default options</h4>
+        <button type="button" class="btn btn-primary pull-right" id="button1" href="#">Basic modal</button>
+        <p>Call dockmodal on the element you want to show. By default it will be visible as a dialog. You can dock, minimize or close the dialog.</p>
+        <pre class="prettyprint lang-well linenums"><code>$(&quot;#dialog1&quot;).dockmodal();</code></pre>
+
+        <h4>Specify initial state</h4>
+        <button type="button" class="btn btn-primary pull-right" id="button3" href="#">: &quot;minimized&quot;</button>
+        <button type="button" class="btn btn-primary pull-right" id="button2" href="#">: &quot;docked&quot;</button>
+        <p>Just pass an extra parameter stating the initial state of the modal. Possible states are "modal", "docked" and "minimized". You will find more on this param at <a href="#options" title="Options">Options</a> section</p>
+<pre class="prettyprint lang-well linenums"><code>$(&quot;#dialog2&quot;).dockmodal({
+    initialState: &quot;docked&quot;
+});</code></pre>
+<pre class="prettyprint lang-well linenums"><code>$(&quot;#dialog3&quot;).dockmodal({
+    initialState: &quot;minimized&quot;
+});</code></pre>
+
+        <h4>Specify dimension</h4>
+        <button type="button" class="btn btn-primary pull-right" id="button5" href="#">Custom dimension 2</button>
+        <button type="button" class="btn btn-primary pull-right" id="button4" href="#">Custom dimension 1</button>
+        <p>Specify width and height at initialization. You will find more on this param at <a href="#options" title="Options">Options</a> section</p>
+<pre class="prettyprint lang-well linenums"><code>$(&quot;#dialog4&quot;).dockmodal({
+    initialState: &quot;docked&quot;,
+    width: 400,
+    minimizedWidth: 200,
+    height: &quot;40%&quot;,
+    title: "Custom dimension 1"
+});</code></pre>
+<pre class="prettyprint lang-well linenums"><code>$(&quot;#dialog5&quot;).dockmodal({
+    initialState: &quot;docked&quot;,
+    width: 500,
+    minimizedWidth: 300,
+    height: &quot;50%&quot;,
+    title: &quot;Custom dimension 2&quot;
+});</code></pre>
+
+        <h4>Customize title bar icons</h4>
+        <button type="button" class="btn btn-primary pull-right" id="button7" href="#">Docked - close only</button>
+        <button type="button" class="btn btn-primary pull-right" id="button6" href="#">Modal - close only</button>
+        <p>Specify which action icons you want to be shown at title bar. You will find more on this param at <a href="#options" title="Options">Options</a> section</p>
+<pre class="prettyprint lang-well linenums"><code>$(&quot;#dialog6&quot;).dockmodal({
+    initialState: &quot;modal&quot;,
+    title: &quot;Modal - close only&quot;,
+    showClose: true,
+    showPopout: false,
+    showMinimize: false
+});</code></pre>
+<pre class="prettyprint lang-well linenums"><code>$(&quot;#dialog7&quot;).dockmodal({
+    initialState: &quot;docked&quot;,
+    title: &quot;Docked - close only&quot;,
+    showClose: true,
+    showPopout: false,
+    showMinimize: false
+});</code></pre>
+
+        <h4>Action buttons at footer</h4>
+        <button type="button" class="btn btn-primary pull-right" id="button8" href="#">Footer buttons</button>
+        <p>You can use action buttons at footer and bind events to it. You will find more on this param at <a href="#options" title="Options">Options</a> section</p>
+<pre class="prettyprint lang-well linenums"><code>$(&quot;#dialog8&quot;).dockmodal({
+    initialState: &quot;docked&quot;,
+    title: &quot;Dialog with footer actions&quot;,
+    width: 400,
+    buttons: [
+        {
+            html: &quot;Cancel&quot;,
+            buttonClass: &quot;btn btn-primary&quot;,
+            click: function (e, dialog) {
+                // do something when the button is clicked
+                dialog.dockmodal("close");
+            }
+        }, {
+            html: &quot;Ok&quot;,
+            buttonClass: &quot;btn btn-primary&quot;,
+            click: function (e, dialog) {
+                // do something when the button is clicked
+                dialog.dockmodal("close");
+            }
+        }
+    ]
+});</code></pre>
+
+        <h4>Content loading via AJAX</h4>
+        <button type="button" class="btn btn-primary pull-right" id="button9" href="#">Ajax content</button>
+        <p>You can load html data via ajax and bind dockmodal on it. Find the following example. For simplicity lets call jQuery's .get() method and load content via ajax.
+            At load callback, create a blank div and push the returned html within it. Finally call dockmodal() on this instance.
+            You will find more on this param at <a href="#options" title="Options">Options</a> section</p>
+<pre class="prettyprint lang-well linenums"><code>$.get("ajax-content.txt", function(data){
+    $(&quot;&lt;div/&gt;&quot;).html(data).dockmodal({
+        initialState: &quot;docked&quot;,
+        title: &quot;Ajax content&quot;,
+        width: 300,
+        buttons: [
+            {
+                html: &quot;Cancel&quot;,
+                buttonClass: &quot;btn btn-primary&quot;,
+                click: function (e, dialog) {
+                    // do something when the button is clicked
+                    dialog.dockmodal("close");
+                }
+            }, {
+                html: &quot;Ok&quot;,
+                buttonClass: &quot;btn btn-primary&quot;,
+                click: function (e, dialog) {
+                    // do something when the button is clicked
+                    dialog.dockmodal("close");
+                }
+            }
+        ]
+    });
+});</code></pre>
+
+        <h4>Events callback</h4>
+        <button type="button" class="btn btn-primary pull-right" id="button10" href="#">Modal with events</button>
+        <p>You can hook to a bunch of events which get fired from times to time at different actions. The following example shows <i>open</i>, <i>minimize</i> and <i>close</i> events.
+            For a complete list please refer to the <a href="#events" title="Events">Events</a> section</p>
+<pre class="prettyprint lang-well linenums"><code>$.get("ajax-content.txt", function(data){
+    $(&quot;&lt;div/&gt;&quot;).html(data).dockmodal({
+        initialState: &quot;docked&quot;,
+        title: &quot;Ajax content&quot;,
+        width: 300,
+        buttons: [
+            {
+                html: &quot;Cancel&quot;,
+                buttonClass: &quot;btn btn-primary&quot;,
+                click: function (e, dialog) {
+                    // do something when the button is clicked
+                    dialog.dockmodal("close");
+                }
+            }, {
+                html: &quot;Ok&quot;,
+                buttonClass: &quot;btn btn-primary&quot;,
+                click: function (e, dialog) {
+                    // do something when the button is clicked
+                    dialog.dockmodal("close");
+                }
+            }
+        ]
+    });
+});</code></pre>
+
+    </section>
+
+    <section id="options">
+        <div class="page-header"><h3>Options</h3>
+            <hr class="notop">
+        </div>
+
+        <p>Options are passed during the initialization of the dialog</p>
+
+        <h4 id="options_code_examples">Code examples:</h4>
+
+        <p>Initialize the dialog with the options specified</p>
+
+<pre class="prettyprint lang-well linenums"><code>$(&quot;#dialog1&quot;).dockmodal({
+    width: 400,
+    height: &quot;65%&quot;,
+    minimizedWidth: 200,
+    gutter: 10,
+    poppedOutDistance: &quot;6%&quot;,
+    title: &quot;My own dialog&quot;,
+    dialogClass: &quot;custom-dialog&quot;,
+    animationSpeed: 400,
+    initialState: &quot;modal&quot;,
+    showClose: true,
+    showPopout: true,
+    showMinimize: true,
+    buttons: [
+        {
+            html: &quot;Cancel&quot;,
+            buttonClass: &quot;btn btn-default&quot;,
+            click: function () {
+                // do something when the button is clicked
+            }
+        }, {
+            html: &quot;Ok&quot;,
+            buttonClass: &quot;btn btn-default&quot;,
+            click: function () {
+                // do something when the button is clicked
+            }
+        }
+    ]
+});</code></pre>
+        <br/>
+        <table class="table" border="0" cellspacing="0" cellpadding="0">
+            <thead>
+            <tr>
+                <th>Option Name</th>
+                <th>Value Type</th>
+                <th>Default Value</th>
+                <th>Comment</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>width</td>
+                <td>Number</td>
+                <td>400</td>
+                <td>Pixel amount</td>
+            </tr>
+            <tr>
+                <td>height</td>
+                <td>String/Number</td>
+                <td>65%</td>
+                <td>Percentage or pixel amount.</td>
+            </tr>
+            <tr>
+                <td>minimizedWidth</td>
+                <td>Number</td>
+                <td>200</td>
+                <td>Pixel amount</td>
+            </tr>
+            <tr>
+                <td>gutter</td>
+                <td>Number</td>
+                <td>10</td>
+                <td>Pixel amount</td>
+            </tr>
+            <tr>
+                <td>poppedOutDistance</td>
+                <td>String</td>
+                <td>6%</td>
+                <td>Percentage or pixel amount. The distance from viewport to modal window.</td>
+            </tr>
+            <tr>
+                <td>title</td>
+                <td>String</td>
+                <td>""</td>
+                <td>Dialog title. If not specified, the title attribute of the modal element will be used.</td>
+            </tr>
+            <tr>
+                <td>dialogClass</td>
+                <td>String</td>
+                <td>""</td>
+                <td>Custom dialog class name</td>
+            </tr>
+            <tr>
+                <td>buttons</td>
+                <td>Array</td>
+                <td>[]</td>
+                <td>
+                    Array of Button objects to be generated at footer. If passed empty then footer will not be generated at all. Each button object expects the following params
+                    <ul>
+                        <li><strong>id</strong>: Button ID</li>
+                        <li><strong>html</strong>: Button text</li>
+                        <li><strong>buttonClass</strong>: Button class</li>
+                        <li><strong>click</strong>: Callback function with params (e, dialog)</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>animationSpeed</td>
+                <td>Number</td>
+                <td>400</td>
+                <td>Number in miliseconds. Use 0 if you want no animation.</td>
+            </tr>
+            <tr>
+                <td>initialState</td>
+                <td>String</td>
+                <td>"modal"</td>
+                <td>Initial state of the modal. Possible values: "modal", "docked", "minimized"</td>
+            </tr>
+            <tr>
+                <td>showClose</td>
+                <td>Boolean</td>
+                <td>true</td>
+                <td>Use false to hide the close button</td>
+            </tr>
+            <tr>
+                <td>showPopout</td>
+                <td>Boolean</td>
+                <td>True</td>
+                <td>Use false to hide the popout button</td>
+            </tr>
+            <tr>
+                <td>showMinimize</td>
+                <td>Boolean</td>
+                <td>True</td>
+                <td>Use false to hide the minimize button</td>
+            </tr>
+            </tbody>
+        </table>
+        <p>&nbsp;</p>
+    </section>
+
+    <section id="methods">
+        <div class="page-header">
+            <h3>Methods</h3>
+            <hr class="notop"/>
+        </div>
+        <h4 id="methods_close_">close()</h4>
+
+        <p>Removes the dialog functionality completely. This will return the element back to its pre-init state.</p>
+        <h5>Code examples:</h5>
+
+        <p>Invoke the close method:</p>
+<pre class="prettyprint lang-well linenums"><code>$(&quot;#dialog1&quot;).dockmodal(&quot;close&quot;);</code></pre>
+        <hr/>
+        <h4 id="methods_minimize_">minimize()</h4>
+
+        <p>Minimizes the dialog.</p>
+        <h5>Code examples:</h5>
+
+        <p>Invoke the minimize method:</p>
+<pre class="prettyprint lang-well linenums"><code>$(&quot;#dialog1&quot;).dockmodal(&quot;minimize&quot;);</code></pre>
+        <hr/>
+        <h4 id="methods_restore_">restore()</h4>
+
+        <p>Restores the dialog to its normal opened state.</p>
+        <h5>Code examples:</h5>
+
+        <p>Invoke the restore method:</p>
+<pre class="prettyprint lang-well linenums"><code>$(&quot;#dialog1&quot;).dockmodal(&quot;restore&quot;);</code></pre>
+        <hr/>
+        <h4 id="methods_popout_">popout()</h4>
+
+        <p>Pops out the dialog to cover full screen and on to of other page components.</p>
+        <h5>Code examples:</h5>
+
+        <p>Invoke the popout method:</p>
+<pre class="prettyprint lang-well linenums"><code>$(&quot;#dialog1&quot;).dockmodal(&quot;popout&quot;);</code></pre>
+        <hr>
+        <h4 id="methods_refreshlayout_">refreshLayout()</h4>
+        <p>Refreshes the element position and recalculates.</p>
+        <h5>Code examples:</h5>
+        <p>Invoke the refreshLayout method:</p>
+<pre class="prettyprint lang-well linenums"><code>$(&quot;#dialog1&quot;).dockmodal(&quot;refreshLayout&quot;);</code></pre>
+    </section>
+
+    <section id="events">
+        <div class="page-header"><h3>Events</h3><hr class="notop"></div>
+        <p>By default all callbacks receive the event and the dialog element as parameter.</p>
+        <h4 id="events_code_examples">Code examples:</h4>
+        <p>Initialize the dialog with the callback specified. All the events work the same way.</p>
+
+<pre class="prettyprint lang-well linenums"><code>$(&quot;#dialog1&quot;).dockmodal({
+    create: function( event, dialog ) {}
+});</code></pre>
+
+        <table border="0" cellpadding="0" cellspacing="0" class="table" height="264" width="644">
+            <thead>
+                <tr>
+                    <th>Event Name</th>
+                    <th>Event params</th>
+                    <th>Callback details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>create</td>
+                    <td>&nbsp;</td>
+                    <td>Triggered when dialog is created</td>
+                </tr>
+                <tr>
+                    <td>open</td>
+                    <td>&nbsp;</td>
+                    <td>Triggered when dialog is opened</td>
+                </tr>
+                <tr>
+                    <td>beforeClose</td>
+                    <td>&nbsp;</td>
+                    <td>Triggered before closing the dialog. Return false from this function to prevent the dialog from closing.</td>
+                </tr>
+                <tr>
+                    <td>close</td>
+                    <td>&nbsp;</td>
+                    <td>Triggered after closing the dialog.</td>
+                </tr>
+                <tr>
+                    <td>beforeMinimize</td>
+                    <td>&nbsp;</td>
+                    <td>Triggered before minimizing the dialog. Return false from this function to prevent the dialog from minimizing.</td>
+                </tr>
+                <tr>
+                    <td>minimize</td>
+                    <td>&nbsp;</td>
+                    <td>Triggered after minimize action is done.</td>
+                </tr>
+                <tr>
+                    <td>beforeRestore</td>
+                    <td>&nbsp;</td>
+                    <td>Triggered before restoring the dialog. Return false from this function to prevent the dialog from restoring.</td>
+                </tr>
+                <tr>
+                    <td>restore</td>
+                    <td>&nbsp;</td>
+                    <td>Triggered after restore action is done.</td>
+                </tr>
+                <tr>
+                    <td>beforePopout</td>
+                    <td>&nbsp;</td>
+                    <td>Triggered before popping out the dialog. Return false from this function to prevent the dialog from popping out.</td>
+                </tr>
+                <tr>
+                    <td>popout</td>
+                    <td>&nbsp;</td>
+                    <td>Triggered after popout action is done.</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>&nbsp;</p>
+    </section>
+
+	</div>
+
+    <div class="hidden-blocks" style="display:none">
+
+        <div id="dialog1" title="Basic modal">
+            <h2>Lorem ipsum dolor</h2>
+
+            <p>Lorem ipsum dolor sit amet, ut pri voluptua forensibus, usu alii intellegam scribentur an, phaedrum adipiscing nec an. Nec id sonet eloquentiam, ei postea percipit cum. Velit rationibus ex sit, in has possim disputationi concludaturque, mea at vitae noluisse. Amet reformidans an per, alterum albucius pri cu. Ut his amet quas audire. Per quando tation ei.</p>
+            <h4>Sit ei illum errem</h4>
+
+            <p>Sit ei illum errem maiorum. Eu latine mandamus sea. Te eam dolore partem. Tincidunt democritum appellantur quo te. Eum no veri detracto, ne wisi nemore forensibus est. Te utroque deserunt principes est, id utinam tractatos vim, summo primis discere ei has.</p>
+            <h4>Sea wisi postulant scripserit</h4>
+
+            <p>Sea wisi postulant scripserit in, invidunt mandamus mea in. Mea evertitur mnesarchum ex. Ne movet mnesarchum his. In vix porro quaestio, sit viderer diceret quaestio no.</p>
+
+            <p>Eirmod conclusionemque ex pri. Cum cu integre mandamus, quo wisi phaedrum consetetur cu. In scaevola deseruisse mel, esse placerat erroribus vel no, illud postulant conceptam sea an. Omnes corpora democritum mei ea, quo quando lobortis ut. Eam no idque tempor nominati. Vel habemus argumentum ei. Ipsum scribentur in nam, volutpat mnesarchum no quo.</p>
+        </div>
+
+        <div id="dialog2" title="Docked modal">
+            <h2>Lorem ipsum dolor</h2>
+
+            <p>Lorem ipsum dolor sit amet, ut pri voluptua forensibus, usu alii intellegam scribentur an, phaedrum adipiscing nec an. Nec id sonet eloquentiam, ei postea percipit cum. Velit rationibus ex sit, in has possim disputationi concludaturque, mea at vitae noluisse. Amet reformidans an per, alterum albucius pri cu. Ut his amet quas audire. Per quando tation ei.</p>
+            <h4>Sit ei illum errem</h4>
+
+            <p>Sit ei illum errem maiorum. Eu latine mandamus sea. Te eam dolore partem. Tincidunt democritum appellantur quo te. Eum no veri detracto, ne wisi nemore forensibus est. Te utroque deserunt principes est, id utinam tractatos vim, summo primis discere ei has.</p>
+            <h4>Sea wisi postulant scripserit</h4>
+
+            <p>Sea wisi postulant scripserit in, invidunt mandamus mea in. Mea evertitur mnesarchum ex. Ne movet mnesarchum his. In vix porro quaestio, sit viderer diceret quaestio no.</p>
+
+            <p>Eirmod conclusionemque ex pri. Cum cu integre mandamus, quo wisi phaedrum consetetur cu. In scaevola deseruisse mel, esse placerat erroribus vel no, illud postulant conceptam sea an. Omnes corpora democritum mei ea, quo quando lobortis ut. Eam no idque tempor nominati. Vel habemus argumentum ei. Ipsum scribentur in nam, volutpat mnesarchum no quo.</p>
+        </div>
+
+        <div id="dialog3" title="Minimized">
+            <h2>Lorem ipsum dolor</h2>
+
+            <p>Lorem ipsum dolor sit amet, ut pri voluptua forensibus, usu alii intellegam scribentur an, phaedrum adipiscing nec an. Nec id sonet eloquentiam, ei postea percipit cum. Velit rationibus ex sit, in has possim disputationi concludaturque, mea at vitae noluisse. Amet reformidans an per, alterum albucius pri cu. Ut his amet quas audire. Per quando tation ei.</p>
+            <h4>Sit ei illum errem</h4>
+
+            <p>Sit ei illum errem maiorum. Eu latine mandamus sea. Te eam dolore partem. Tincidunt democritum appellantur quo te. Eum no veri detracto, ne wisi nemore forensibus est. Te utroque deserunt principes est, id utinam tractatos vim, summo primis discere ei has.</p>
+            <h4>Sea wisi postulant scripserit</h4>
+
+            <p>Sea wisi postulant scripserit in, invidunt mandamus mea in. Mea evertitur mnesarchum ex. Ne movet mnesarchum his. In vix porro quaestio, sit viderer diceret quaestio no.</p>
+
+            <p>Eirmod conclusionemque ex pri. Cum cu integre mandamus, quo wisi phaedrum consetetur cu. In scaevola deseruisse mel, esse placerat erroribus vel no, illud postulant conceptam sea an. Omnes corpora democritum mei ea, quo quando lobortis ut. Eam no idque tempor nominati. Vel habemus argumentum ei. Ipsum scribentur in nam, volutpat mnesarchum no quo.</p>
+        </div>
+
+        <div id="dialog4" title="Minimized">
+            <h2>Lorem ipsum dolor</h2>
+
+            <p>Lorem ipsum dolor sit amet, ut pri voluptua forensibus, usu alii intellegam scribentur an, phaedrum adipiscing nec an. Nec id sonet eloquentiam, ei postea percipit cum. Velit rationibus ex sit, in has possim disputationi concludaturque, mea at vitae noluisse. Amet reformidans an per, alterum albucius pri cu. Ut his amet quas audire. Per quando tation ei.</p>
+            <h4>Sit ei illum errem</h4>
+
+            <p>Sit ei illum errem maiorum. Eu latine mandamus sea. Te eam dolore partem. Tincidunt democritum appellantur quo te. Eum no veri detracto, ne wisi nemore forensibus est. Te utroque deserunt principes est, id utinam tractatos vim, summo primis discere ei has.</p>
+            <h4>Sea wisi postulant scripserit</h4>
+
+            <p>Sea wisi postulant scripserit in, invidunt mandamus mea in. Mea evertitur mnesarchum ex. Ne movet mnesarchum his. In vix porro quaestio, sit viderer diceret quaestio no.</p>
+
+            <p>Eirmod conclusionemque ex pri. Cum cu integre mandamus, quo wisi phaedrum consetetur cu. In scaevola deseruisse mel, esse placerat erroribus vel no, illud postulant conceptam sea an. Omnes corpora democritum mei ea, quo quando lobortis ut. Eam no idque tempor nominati. Vel habemus argumentum ei. Ipsum scribentur in nam, volutpat mnesarchum no quo.</p>
+        </div>
+
+        <div id="dialog5" title="Minimized">
+            <h2>Lorem ipsum dolor</h2>
+
+            <p>Lorem ipsum dolor sit amet, ut pri voluptua forensibus, usu alii intellegam scribentur an, phaedrum adipiscing nec an. Nec id sonet eloquentiam, ei postea percipit cum. Velit rationibus ex sit, in has possim disputationi concludaturque, mea at vitae noluisse. Amet reformidans an per, alterum albucius pri cu. Ut his amet quas audire. Per quando tation ei.</p>
+            <h4>Sit ei illum errem</h4>
+
+            <p>Sit ei illum errem maiorum. Eu latine mandamus sea. Te eam dolore partem. Tincidunt democritum appellantur quo te. Eum no veri detracto, ne wisi nemore forensibus est. Te utroque deserunt principes est, id utinam tractatos vim, summo primis discere ei has.</p>
+            <h4>Sea wisi postulant scripserit</h4>
+
+            <p>Sea wisi postulant scripserit in, invidunt mandamus mea in. Mea evertitur mnesarchum ex. Ne movet mnesarchum his. In vix porro quaestio, sit viderer diceret quaestio no.</p>
+
+            <p>Eirmod conclusionemque ex pri. Cum cu integre mandamus, quo wisi phaedrum consetetur cu. In scaevola deseruisse mel, esse placerat erroribus vel no, illud postulant conceptam sea an. Omnes corpora democritum mei ea, quo quando lobortis ut. Eam no idque tempor nominati. Vel habemus argumentum ei. Ipsum scribentur in nam, volutpat mnesarchum no quo.</p>
+        </div>
+
+        <div id="dialog6" title="Minimized">
+            <h2>Lorem ipsum dolor</h2>
+
+            <p>Lorem ipsum dolor sit amet, ut pri voluptua forensibus, usu alii intellegam scribentur an, phaedrum adipiscing nec an. Nec id sonet eloquentiam, ei postea percipit cum. Velit rationibus ex sit, in has possim disputationi concludaturque, mea at vitae noluisse. Amet reformidans an per, alterum albucius pri cu. Ut his amet quas audire. Per quando tation ei.</p>
+            <h4>Sit ei illum errem</h4>
+
+            <p>Sit ei illum errem maiorum. Eu latine mandamus sea. Te eam dolore partem. Tincidunt democritum appellantur quo te. Eum no veri detracto, ne wisi nemore forensibus est. Te utroque deserunt principes est, id utinam tractatos vim, summo primis discere ei has.</p>
+            <h4>Sea wisi postulant scripserit</h4>
+
+            <p>Sea wisi postulant scripserit in, invidunt mandamus mea in. Mea evertitur mnesarchum ex. Ne movet mnesarchum his. In vix porro quaestio, sit viderer diceret quaestio no.</p>
+
+            <p>Eirmod conclusionemque ex pri. Cum cu integre mandamus, quo wisi phaedrum consetetur cu. In scaevola deseruisse mel, esse placerat erroribus vel no, illud postulant conceptam sea an. Omnes corpora democritum mei ea, quo quando lobortis ut. Eam no idque tempor nominati. Vel habemus argumentum ei. Ipsum scribentur in nam, volutpat mnesarchum no quo.</p>
+        </div>
+
+        <div id="dialog7" title="Minimized">
+            <h2>Lorem ipsum dolor</h2>
+
+            <p>Lorem ipsum dolor sit amet, ut pri voluptua forensibus, usu alii intellegam scribentur an, phaedrum adipiscing nec an. Nec id sonet eloquentiam, ei postea percipit cum. Velit rationibus ex sit, in has possim disputationi concludaturque, mea at vitae noluisse. Amet reformidans an per, alterum albucius pri cu. Ut his amet quas audire. Per quando tation ei.</p>
+            <h4>Sit ei illum errem</h4>
+
+            <p>Sit ei illum errem maiorum. Eu latine mandamus sea. Te eam dolore partem. Tincidunt democritum appellantur quo te. Eum no veri detracto, ne wisi nemore forensibus est. Te utroque deserunt principes est, id utinam tractatos vim, summo primis discere ei has.</p>
+            <h4>Sea wisi postulant scripserit</h4>
+
+            <p>Sea wisi postulant scripserit in, invidunt mandamus mea in. Mea evertitur mnesarchum ex. Ne movet mnesarchum his. In vix porro quaestio, sit viderer diceret quaestio no.</p>
+
+            <p>Eirmod conclusionemque ex pri. Cum cu integre mandamus, quo wisi phaedrum consetetur cu. In scaevola deseruisse mel, esse placerat erroribus vel no, illud postulant conceptam sea an. Omnes corpora democritum mei ea, quo quando lobortis ut. Eam no idque tempor nominati. Vel habemus argumentum ei. Ipsum scribentur in nam, volutpat mnesarchum no quo.</p>
+        </div>
+
+        <div id="dialog8" title="Window 4">
+            <h2>Maybe a Form is what you need</h2>
+            <hr/>
+            <label class="label" for="input1">Your Full Name</label>
+            <input class="input" id="input1" type="text" placeholder="John Smith"/>
+            <label class="label" for="input2">Your Cell Number</label>
+            <input class="input" id="input2" type="text" placeholder="+1 234 567890"/>
+            <label class="label" for="input3">Your Adress</label>
+            <textarea class="input" id="input3" placeholder="Full Address"></textarea>
+        </div>
+
+        <div id="dialog10" title="Events">
+            <h2>Sample Lorem table</h2>
+            <table class="table" border="0" cellspacing="0" cellpadding="0">
+                <thead>
+                <tr>
+                    <th>Lorem Ipsum</th>
+                    <th>Doler Sit</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Sea wisi postulant</td>
+                    <td>invidunt mandamus</td>
+                </tr>
+                <tr>
+                    <td>Sea wisi postulant</td>
+                    <td>invidunt mandamus</td>
+                </tr>
+                <tr>
+                    <td>Sea wisi postulant</td>
+                    <td>invidunt mandamus</td>
+                </tr>
+                <tr>
+                    <td>Sea wisi postulant</td>
+                    <td>invidunt mandamus</td>
+                </tr>
+                <tr>
+                    <td>Sea wisi postulant</td>
+                    <td>invidunt mandamus</td>
+                </tr>
+                <tr>
+                    <td>Sea wisi postulant</td>
+                    <td>invidunt mandamus</td>
+                </tr>
+                <tr>
+                    <td>Sea wisi postulant</td>
+                    <td>invidunt mandamus</td>
+                </tr>
+                </tbody>
+            </table>
+            <p>Eirmod conclusionemque ex pri. Cum cu integre mandamus, quo wisi phaedrum consetetur cu. In scaevola deseruisse mel, esse placerat erroribus vel no, illud postulant conceptam sea an. Omnes corpora democritum mei ea, quo quando lobortis ut. Eam no idque tempor nominati. Vel habemus argumentum ei. Ipsum scribentur in nam, volutpat mnesarchum no quo.</p>
+        </div>
+
+    </div>
+    <!--/hidden-blocks-->
+    <script src="assets/js/google-code-prettify/prettify.js"></script>
+    <script src="assets/js/jquery-1.9.1.min.js"></script>
+    <script src="assets/js/jquery-migrate-1.1.1.min.js"></script>
+    <script src="assets/js/jquery.scrollTo.js"></script>
+    <script src="assets/js/jquery.easing.js"></script>
+    <script src="assets/js/jquery.dockmodal.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

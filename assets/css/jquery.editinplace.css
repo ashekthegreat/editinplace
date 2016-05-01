@@ -1,0 +1,78 @@
+/* editable dropdown */
+.editable-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 60px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    list-style: none;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    *border-right-width: 2px;
+    *border-bottom-width: 2px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+}
+.editable-dropdown-menu.no-padding{
+    padding: 0;
+}
+.editable-dropdown-menu a.item {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: normal;
+    line-height: 20px;
+    color: #333333;
+    white-space: nowrap;
+}
+.editable-dropdown-menu a {
+    color: #1E759E;
+}
+
+.editable-dropdown-menu li > a:hover,
+.editable-dropdown-menu li > a:focus{
+    color: #1E759E;
+    text-decoration: none;
+    background: #EFEFEF;
+}
+
+.editable-dropdown-menu .pad{
+    padding: 3px 10px;
+}
+.editable-dropdown-menu .multiple input{
+    margin-top: 0;
+}
+.editable-dropdown-menu a.editable-cancel{
+    padding: 0;
+    display: inline;
+    color: maroon;
+}
+.editable-dropdown-menu a.editable-cancel:hover{
+    background: transparent;
+    text-decoration: underline;
+}
+.editable-dropdown-menu .tac{
+    text-align: center;
+}
+.editable-dropdown-menu input.text-input{
+    width: 80px;
+}
+.editable-dropdown-menu textarea.text-input{
+    width: 170px;
+    height: 40px;
+}
+.open > .editable-dropdown-menu {
+    display: block;
+}
